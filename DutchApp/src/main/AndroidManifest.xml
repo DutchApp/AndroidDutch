@@ -8,6 +8,8 @@
         android:minSdkVersion="7"
         android:targetSdkVersion="16" />
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -16,11 +18,21 @@
         <activity
             android:name="com.dutch.dutchapp.WelcomeActivity"
             android:label="@string/app_name"
-            android:theme="@style/welcomeSplash">
+            android:theme="@style/welcomeSplash" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="com.dutch.dutchapp.LoginActivity"
+            android:label="@string/title_activity_login"
+            android:windowSoftInputMode="adjustResize|stateVisible" >
+        </activity>
+        <activity
+            android:name="com.dutch.dutchapp.MainActivity"
+            android:label="@string/title_activity_main">
         </activity>
     </application>
 
