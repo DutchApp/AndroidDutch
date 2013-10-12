@@ -25,13 +25,12 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.HashMap;
 
 /**
  * Activity which displays a login screen to the user, offering registration as
  * well.
  */
-public class LoginActivity extends Activity {
+public class LoginActivity extends BaseActivity {
     /**
      * A dummy authentication store containing known user names and passwords.
      * TODO: remove after connecting to a real authentication system.
@@ -209,14 +208,13 @@ public class LoginActivity extends Activity {
     public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
         @Override
         protected Boolean doInBackground(Void... params) {
-
             HttpURLConnection connection = null;
             try {
                 JSONObject json = new JSONObject();
                 json.put("email", mEmail);
                 json.put("password", mPassword);
 
-                URL url = new URL("http://dutchdev.herokuapp.com/users/sign_in.json");
+                URL url = new URL(getServerUrl(R.string.sign_in_path));
                 connection = (HttpURLConnection) url.openConnection();
                 connection.setDoOutput(true);
                 connection.setRequestMethod("POST");
@@ -277,4 +275,31 @@ public class LoginActivity extends Activity {
             showProgress(false);
         }
     }
+
+    /*private String getServerUrl(int pathId) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(getBaseUrl());
+        String context = getString(pathId);
+        if (context != null) {
+            sb.append(context);
+        }
+        return sb.toString();
+    }
+
+    private String getServerUrl() {
+        return getBaseUrl();
+    }
+
+    private String getBaseUrl() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("http");
+        if (getResources().getBoolean(R.bool.DUTCH_SERVER_SECURE)) {
+            sb.append("s");
+        }
+        sb.append("://").append(getString(R.string.DUTCH_SERVER_HOST));
+        if (getResources().getInteger(R.integer.DUTCH_SERVER_PORT) > 0) {
+            sb.append(":").append(getResources().getInteger(R.integer.DUTCH_SERVER_PORT));
+        }
+        return sb.toString();
+    }*/
 }

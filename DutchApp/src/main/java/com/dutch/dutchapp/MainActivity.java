@@ -41,7 +41,7 @@ public class MainActivity extends Activity {
 
     private void signout() {
         Toast.makeText(this, "Signing out", 2000);
-        startActivity(new Intent(this, LoginActivity.class));
+        startActivity(new Intent(this, WelcomeActivity.class));
         finish();
     }
 

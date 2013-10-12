@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="DUTCH_SERVER_HOST">dutchdev.herokuapp.com</string>
+    <integer name="DUTCH_SERVER_PORT">0</integer>
+    <bool name="DUTCH_SERVER_SECURE">false</bool>
+
+    <string name="sign_in_path">/users/sign_in.json</string>
+</resources>
